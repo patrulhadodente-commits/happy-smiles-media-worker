@@ -17,7 +17,7 @@ async function run() {
   while (true) {
     try {
       const { data, error } = await supabase.rpc(
-        'claim_media_processing_job'
+        'claim_media_processing_jobs'
       )
 
       if (error) {
