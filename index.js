@@ -17,11 +17,14 @@ async function run() {
   while (true) {
     try {
       const { data, error } = await supabase.rpc(
-        'claim_media_processing_jobs'
+        'claim_media_processing_job',
+        {
+          p_worker_id: 'railway-media-worker'
+        }
       )
 
       if (error) {
-        console.error('Erro RPC:', error)
+        console.error('❌ Erro RPC:', error)
       }
 
       if (data) {
@@ -31,8 +34,14 @@ async function run() {
       }
 
     } catch (err) {
-      console.error('Erro geral:', err)
+      console.error('💥 Erro geral:', err)
     }
+
+    await sleep(5000)
+  }
+}
+
+run()
 
     await sleep(5000)
   }
