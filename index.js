@@ -25,9 +25,7 @@ async function run() {
 
       if (error) {
         console.error('❌ Erro RPC:', error)
-      }
-
-      if (data) {
+      } else if (data) {
         console.log('📦 Job encontrado:', data)
       } else {
         console.log('😴 Nenhum job pendente')
@@ -36,12 +34,6 @@ async function run() {
     } catch (err) {
       console.error('💥 Erro geral:', err)
     }
-
-    await sleep(5000)
-  }
-}
-
-run()
 
     await sleep(5000)
   }
